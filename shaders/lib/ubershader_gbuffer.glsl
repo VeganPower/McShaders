@@ -21,7 +21,7 @@ in vec4 vx_color;
 
 /* RENDERTARGETS:0,4 */
 out vec4 colortex0; // albedo
-out vec2 colortex4; // lightmap
+out vec3 colortex4; // lightmap
 
 
 void fill_gbuffer()
@@ -33,11 +33,13 @@ void fill_gbuffer()
 #endif
 #ifdef USE_LIGHTMAP
     // Lighmap doesn't clamp to the last textel
-    vec2 l_map_uv = (lm_coord/255.0 * 15.0/16.0) + 0.5/16.0;
-    // vec2 l_map_uv = clamp(lm_coord / 255.0, 0.5/16, 15.5/16);
-    vec2 l_map = texture2D(lightmap, l_map_uv).xy;
+    // vec2 l_map_uv = (lm_coord/255.0 * 15.0/16.0) + 0.5/16.0;
+    vec2 l_map_uv;
+    l_map_uv.x = clamp(lm_coord.x / 255.0, 0.5/16, 15.5/16);
+    l_map_uv.y = clamp(lm_coord.y / 255.0, 0.5/16, 15.5/16);
+    vec3 l_map = texture2D(lightmap, l_map_uv).xyz;
 
-    colortex4 = l_map;
+    colortex4 = l_map * vx_color.a;
 #endif
     int material_ID = 0;
 #ifdef SH_IS_TERRAIN
