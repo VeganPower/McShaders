@@ -1,0 +1,19 @@
+Shader to write for gbuffer
+
+gbuffers_line                block outline, fishing line           gbuffers_basic
+gbuffers_skybasic            sky, horizon, stars, void             gbuffers_basic
+gbuffers_skytextured         sun, moon                             gbuffers_textured
+gbuffers_clouds              clouds                                gbuffers_textured
+gbuffers_damagedblock        damaged_blocks                        gbuffers_terrain
+gbuffers_block               block_entities                        gbuffers_terrain
+gbuffers_beaconbeam          beacon beam                           gbuffers_textured
+gbuffers_entities_glowing    glowing entities, spectral effect     gbuffers_entities
+gbuffers_armor_glint         glint on armor and handheld items     gbuffers_textured
+gbuffers_spidereyes          eyes of spider, enderman and dragon   gbuffers_textured
+gbuffers_hand                hand and opaque handheld objects      gbuffers_textured_lit
+gbuffers_weather             rain, snow                            gbuffers_textured_lit
+
+gbuffers_terrain_solid       <not used>                            gbuffers_terrain
+gbuffers_terrain_cutout_mip  <not used>                            gbuffers_terrain
+gbuffers_terrain_cutout      <not used>                            gbuffers_terrain
+gbuffers_item                <not used>                            gbuffers_textured_lit
